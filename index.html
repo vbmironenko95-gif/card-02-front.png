@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Адвент-картка 02</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      width: 300px;
+      height: 400px;
+      perspective: 1000px;
+    }
+    .inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+      position: relative;
+      cursor: pointer;
+    }
+    .inner.flipped {
+      transform: rotateY(180deg);
+    }
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      background-size: cover;
+      background-position: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .front {
+      background-image: url("card-02-front.png");
+    }
+    .back {
+      background-image: url("card-02-back.png");
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="inner" onclick="this.classList.toggle('flipped')">
+      <div class="front"></div>
+      <div class="back"></div>
+    </div>
+  </div>
+</body>
+</html>
